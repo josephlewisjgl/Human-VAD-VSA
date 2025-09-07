@@ -11,7 +11,7 @@ This root directory is where the Avenue Dataset (described below) or ShanghaiTec
 In this directory clone the repo:
 
 ```
-git clone 
+git clone https://github.com/josephlewisjgl/Human-VAD-VSA.git
 ```
 
 Then each Python notebook should be run in the relative directory i.e. with the working directory set to `VSA-VAD/VSA-Human-VAD`.
@@ -24,13 +24,15 @@ Python dependencies are installed as part of the notebooks used to run code, as 
 
 To run the pose estimation pipeline you will need the raw datasets for the CUHK-Avenue and ShanghaiTech data.
 
-The CUHK-Avenue data is made available by the author via Kaggle: 
+The CUHK-Avenue data is made available by the author via Kaggle: https://www.kaggle.com/datasets/joelewis/hr-avenueframedata
 
-The ShanghaiTech data can be retrieved from the original authors: 
+The ShanghaiTech data can be retrieved from the original authors: https://svip-lab.github.io/dataset/campus_dataset.html
 
 Both should be placed in the `VSA-VAD` directories or have filepaths updated. Note: The ShanghaiTech dataset is very large so may favour placement on a cloud drive/storage space.
 
-As an alternative if you would like to work with pre-extracted poses it is sufficient to just use the datasets cloned in this repo in the `/data/` folder. For validation you may favour extracting labels/frames yourself but the ones provided are used in the paper.
+As an alternative if you would like to work with pre-extracted poses it is sufficient to just use the datasets cloned in this repo, for HR-Avenue, in the `/data/` folder. For validation you may favour extracting labels/frames yourself but the ones provided are used in the paper.
+
+Or for ShanghaiTech the extracted poses are stored at the link which need to be placed in `/data/` to run STC-02.ipynb: https://www.kaggle.com/datasets/joelewis/shanghaitechtrainandtestposes
 
 ### Baselines (optional)
 
@@ -48,7 +50,7 @@ To reproduce the HR-Avenue results of the report, the notebooks should be run in
 
 If you are not interested in collecting poses you can:
 * Run your own pose estimator on the data to get it into the same structure as that in `/data/<train/test>_tracked_poses.csv`
-* Use the pre-extracted poses and start from 02_AnomalyDetection.ipynb
+* Or use the pre-extracted poses and start from 02_AnomalyDetection.ipynb
 
 01_CollectPoses.ipynb: 
 * Detect poses and build structured dataset for training frames with the edge and post-hoc systems
@@ -75,7 +77,7 @@ If you are not interested in collecting poses you can:
 008_YOLOPoseMocodadLatency.ipynb:
 * Runs the pose estimation model described in mocodad paper to estimate latency for results comparison
 
-To reproduce the ShanghaiTech results of the report, the notebooks STC-01 and STC-02 should be run:
+To reproduce the ShanghaiTech results of the report, the notebooks STC-01 and STC-02 should be run, either from the extracted video frames as images stored one directory up from this root (`VSA-VAD`) for STC-01.ipynb or directly from poses for STC-02.ipynb:
 
 STC-01.ipynb:
 * Runs pose estimation on the STC dataset
